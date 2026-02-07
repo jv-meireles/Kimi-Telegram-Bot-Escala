@@ -1,0 +1,19 @@
+# Bot de Escala Militar - Dependencias
+# Instale com: pip install -r requirements.txt
+
+# Framework do Bot do Telegram (versao 20+ assincrona)
+python-telegram-bot==20.7
+
+# Leitura de PDFs
+PyPDF2==3.0.1
+
+# OCR para PDFs escaneados (fallback)
+pdf2image==1.17.0
+pytesseract==0.3.10
+Pillow==10.1.0
+
+# Servidor web para manter o bot online no Render
+flask==3.0.0
+
+# Utilitarios
+python-dotenv==1.0.0

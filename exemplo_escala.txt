@@ -1,0 +1,28 @@
+EXEMPLO DE ESCALA MILITAR
+=========================
+
+Este eh um exemplo de como o bot identifica nomes em uma escala.
+
+ESCALA DE SERVICO - DIA 15/01/2024
+-----------------------------------
+
+EQUIPE ALFA:
+SD JOAO VICTOR; SGT FIALHO; SUB TEN SILVA; CB BAIA
+
+EQUIPE BRAVO:
+SD PEREIRA; CB SANTOS; 3º SGT OLIVEIRA
+
+EQUIPE CHARLIE:
+2º TEN COSTA; SD MARTINS; CB RODRIGUES
+
+-----------------------------------
+COMO FUNCIONA:
+O bot procura por padroes como:
+- SD + NOME
+- CB + NOME  
+- SGT + NOME
+- 1º TEN, 2º TEN, 3º TEN + NOME
+- SUB TEN + NOME
+- CAP, MAJ, TC, CEL + NOME
+
+E envia uma mensagem privada para cada policial cadastrado!
