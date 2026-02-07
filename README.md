@@ -7,11 +7,32 @@
 ## 📋 SUMARIO
 
 1. [O que este bot faz?](#o-que-este-bot-faz)
-2. [Passo 1: Configuracao no Telegram](#passo-1-configuracao-no-telegram)
-3. [Passo 2: Preparacao no GitHub](#passo-2-preparacao-no-github)
-4. [Passo 3: Deploy no Render.com](#passo-3-deploy-no-rendercom)
-5. [Passo 4: Como Usar o Bot](#passo-4-como-usar-o-bot)
-6. [Solucao de Problemas](#solucao-de-problemas)
+2. [Arquivos do Projeto](#arquivos-do-projeto)
+3. [Passo 1: Configuracao no Telegram](#passo-1-configuracao-no-telegram)
+4. [Passo 2: Preparacao no GitHub](#passo-2-preparacao-no-github)
+5. [Passo 3: Deploy no Render.com](#passo-3-deploy-no-rendercom)
+6. [Passo 4: Como Usar o Bot](#passo-4-como-usar-o-bot)
+7. [Solucao de Problemas](#solucao-de-problemas)
+
+---
+
+## Arquivos do Projeto
+
+Certifique-se de ter **TODOS** estes arquivos antes de fazer o upload:
+
+| Arquivo | Obrigatorio | Descricao |
+|---------|-------------|-----------|
+| `bot.py` | ✅ Sim | Cerebro do bot |
+| `pdf_parser.py` | ✅ Sim | Leitor de PDFs |
+| `database.json` | ✅ Sim | Banco de dados |
+| `requirements.txt` | ✅ Sim | Bibliotecas |
+| `render.yaml` | ✅ Sim | Configuracao do Render |
+| `runtime.txt` | ✅ Sim | **Versao do Python** |
+| `web_server.py` | ✅ Sim | Servidor web |
+| `README.md` | ❌ Nao | Este guia |
+| `.gitignore` | ❌ Nao | Arquivos a ignorar |
+
+**⚠️ IMPORTANTE:** O arquivo `runtime.txt` eh ESSENCIAL para funcionar no Render.com!
 
 ---
 
@@ -270,6 +291,32 @@ Ao clicar em **"✅ CONFIRMAR CIENCIA"**:
 ---
 
 ## SOLUCAO DE PROBLEMAS
+
+### ❌ ERRO: "Build failed" ou "subprocess-exited-with-error"
+
+**Erro que aparece:**
+```
+Getting requirements to build wheel: finished with status 'error'
+subprocess-exited-with-error
+Build failed
+```
+
+**Causa:**
+O Render estava usando Python 3.13 (versao muito nova) e algumas bibliotecas falharam ao compilar.
+
+**Solucao:**
+1. Certifique-se de que o arquivo **`runtime.txt`** esta no seu repositorio com:
+   ```
+   python-3.11.11
+   ```
+
+2. Certifique-se de que o arquivo **`render.yaml`** esta atualizado (versao corrigida)
+
+3. No Render, va em **"Manual Deploy"** → **"Deploy latest commit"**
+
+4. Se ainda falhar, verifique se todos os arquivos foram enviados para o GitHub
+
+---
 
 ### ❌ Bot nao responde comandos
 

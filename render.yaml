@@ -6,7 +6,10 @@ services:
   - type: worker
     name: bot-escala-militar
     runtime: python
-    buildCommand: "pip install -r requirements.txt"
+    # Forca o uso do Python 3.11 (mais estavel)
+    buildCommand: |
+      pip install --upgrade pip setuptools wheel
+      pip install -r requirements.txt
     startCommand: "python bot.py"
     # Plano gratuito: o bot dorme apos 15 min de inatividade
     # Para 24h real, precisa do plano pago ($7/mes)
@@ -14,9 +17,6 @@ services:
     
     # Variaveis de ambiente (serao configuradas no painel do Render)
     envVars:
-      - key: PYTHON_VERSION
-        value: "3.11.0"
-      
       # ATENCAO: Estas variaveis DEVEM ser configuradas no painel do Render!
       # NAO coloque valores reais aqui por seguranca
       - key: BOT_TOKEN
@@ -30,6 +30,8 @@ services:
   - type: web
     name: bot-escala-militar-web
     runtime: python
-    buildCommand: "pip install -r requirements.txt"
+    buildCommand: |
+      pip install --upgrade pip setuptools wheel
+      pip install -r requirements.txt
     startCommand: "python web_server.py"
     plan: free
